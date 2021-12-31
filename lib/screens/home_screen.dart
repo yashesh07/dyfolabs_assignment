@@ -1,4 +1,5 @@
 import 'package:dyfolabs_assignment/resources/constants.dart';
+import 'package:dyfolabs_assignment/widgets/card_tile.dart';
 import 'package:dyfolabs_assignment/widgets/tab_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_icons/flutter_weather_icons.dart';
@@ -30,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: kContainerBoxDecoration,
+        decoration: kGradientBackgroundBoxDecoration,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical:15.0, horizontal: 15.0),
+              padding: const EdgeInsets.symmetric(vertical:15.0),
               child: DefaultTabController(
                 length: 4,
                 child: TabBar(
@@ -150,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                   isScrollable: true,
                   indicatorColor: Colors.transparent,
                   labelPadding: const EdgeInsets.symmetric(horizontal: 5.0),
-
+                    padding: const EdgeInsets.only(left: 20.0),
                     tabs: [
                       Tab(child: TabContainer(
                           labelName: 'Living room',
@@ -170,6 +171,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                         borderColor: _tabController.index == 3 ? kYellowColorShade2 : Colors.grey.shade800,),),
                     ],
                 ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 25.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  CardTile(),
+                  CardTile(),
+                ],
               ),
             ),
           ],

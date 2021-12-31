@@ -13,7 +13,7 @@ class TabContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 81,
+      width: 86,
       height: 25,
       decoration: BoxDecoration(
         border: Border.all(

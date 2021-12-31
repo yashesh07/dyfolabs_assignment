@@ -6,7 +6,7 @@ const kYellowColor = Color(0xFFEBB93D);
 const kYellowColorShade2 = Color(0xFF937429);
 const kWhiteColor = Colors.white;
 const kGreyColor = Colors.grey;
-const kContainerBoxDecoration = BoxDecoration(
+const kGradientBackgroundBoxDecoration = BoxDecoration(
   gradient: LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment(
