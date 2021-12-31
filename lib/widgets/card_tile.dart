@@ -13,24 +13,24 @@ class _CardTileState extends State<CardTile> {
   @override
   Widget build(BuildContext context) {
     return UnicornOutlineButton(
-      strokeWidth: 1,
+      strokeWidth: 1.5,
       radius: 12,
       gradient: LinearGradient(
           begin: const Alignment(
               -0.5, -1.5),
           end: const Alignment(
-              0.0, 1.0),
+              0.0, 1.2),
           stops: const [
             0.2,
             0.4,
           ],
           colors: [
-            kYellowColorShade2,
+            kYellowColorShade3,
             Colors.grey.shade900
           ]),
       onPressed: () {},
       child: Container(
-        height: 90,
+        height: 85,
         width: 145,
       ),
     );

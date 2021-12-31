@@ -27,7 +27,7 @@ class TabContainer extends StatelessWidget {
         child: Text(
           labelName,
           style: TextStyle(
-            fontSize: 10,
+            fontSize: 11,
             color: color
           ),
         ),
