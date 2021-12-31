@@ -9,17 +9,20 @@ class CardGridView extends StatefulWidget {
 }
 
 class _CardGridViewState extends State<CardGridView> {
+
+  final cardList = [];
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      padding: const EdgeInsets.only(bottom: 60.0),
+      padding: const EdgeInsets.only(bottom: 80.0),
       childAspectRatio: 3/2,
       mainAxisSpacing: 0,
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
       physics: const ScrollPhysics(),
       crossAxisCount: 2,
-      children: List.generate(10, (index) {
+      children: List.generate( 15, (index) {
         return const Center(
           child: CardTile(),
         );

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:dyfolabs_assignment/resources/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -20,29 +21,45 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         right: 0,
         child: buildBlur(
           borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-            bottomRight: Radius.circular(35),
-            bottomLeft: Radius.circular(35),
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(40),
+            bottomLeft: Radius.circular(40),
           ),
           child: Container(
-            height: 60,
+            height: 70,
             decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.1),
               borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
-                bottomRight: Radius.circular(35),
-                bottomLeft: Radius.circular(35),
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+                bottomRight: Radius.circular(40),
+                bottomLeft: Radius.circular(40),
               ),
               border: Border.all(
                 color: Colors.grey.shade900,
                 width: 1,
               ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [],
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  IconButton(
+                      onPressed: null,
+                      icon: Icon(Icons.home_outlined, size: 25, color: kWhiteColor,)),
+                  IconButton(
+                      onPressed: null,
+                      icon: Icon(Icons.grid_view_rounded, size: 25, color: kWhiteColor,)),
+                  IconButton(
+                      onPressed: null,
+                      icon: Icon(Icons.notifications_none_rounded, size: 25, color: kWhiteColor,)),
+                  IconButton(
+                      onPressed: null,
+                      icon: Icon(Icons.settings_outlined, size: 25, color: kWhiteColor,)),
+                ],
+              ),
             ),
           ),
         ),
@@ -53,8 +70,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   Widget buildBlur({
     @required Widget? child,
     BorderRadius? borderRadius,
-    double sigmaX = 5,
-    double sigmaY = 5,
+    double sigmaX = 3,
+    double sigmaY = 3,
   }) =>
       ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.zero,

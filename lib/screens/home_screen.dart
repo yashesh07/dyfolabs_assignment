@@ -14,15 +14,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   late TabController _tabController;
 
-  int pageIndex = 0;
-
-  final pages = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -39,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return Scaffold(
       body: Container(
         decoration: kGradientBackgroundBoxDecoration,
-        child: SingleChildScrollView(
-          child: Column(
+        child: Column(mainAxisAlignment: MainAxisAlignment.start, children: [
+          Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
@@ -206,13 +197,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 15.0),
-                child: CardGridView(),
-              ),
             ],
           ),
-        ),
+          const Expanded(
+            child: SingleChildScrollView(
+              child: CardGridView(),
+            ),
+          ),
+        ]),
       ),
       extendBody: true,
       bottomNavigationBar: const CustomBottomNavigationBar(),
