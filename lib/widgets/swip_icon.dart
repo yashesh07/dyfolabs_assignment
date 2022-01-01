@@ -3,22 +3,6 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:math';
 
-/// Customable and attractive Switch button.
-/// Currently, you can't change the widget
-/// width and height properties.
-///
-/// As well as the classical Switch Widget
-/// from flutter material, the following
-/// arguments are required:
-///
-/// * [value] determines whether this switch is on or off.
-/// * [onChanged] is called when the user toggles the switch on or off.
-///
-/// If you don't set these arguments you would
-/// experiment errors related to animationController
-/// states or any other undesirable behavior, please
-/// don't forget to set them.
-///
 class SwipIcon extends StatefulWidget {
   @required
   final bool value;
@@ -118,28 +102,28 @@ class _RollingSwitchState extends State<SwipIcon>
               child: Opacity(
                 opacity: (1 - value).clamp(0.0, 1.0),
                 child: Container(
-                  padding: EdgeInsets.only(right: 10),
+                  padding: const EdgeInsets.only(right: 10),
                   alignment: Alignment.centerRight,
                   height: 40,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Row(
-                        children: const [
+                        children: [
                           Icon(
                             Icons.chevron_right_rounded,
                             size: 15,
-                            color: kWhiteColor,
+                            color: Colors.grey.shade600,
                           ),
                           Icon(
                             Icons.chevron_right_rounded,
                             size: 15,
-                            color: kWhiteColor,
+                            color: Colors.grey.shade700,
                           ),
                           Icon(
                             Icons.chevron_right_rounded,
                             size: 15,
-                            color: kWhiteColor,
+                            color: Colors.grey.shade800,
                           ),
                         ],
                       ),
@@ -165,26 +149,26 @@ class _RollingSwitchState extends State<SwipIcon>
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const Icon(
-                        Icons.lock_outline,
+                        Icons.lock,
                         size: 25,
                         color: kWhiteColor,
                       ),
                       Row(
-                        children: const [
+                        children: [
                           Icon(
                             Icons.chevron_left,
                             size: 15,
-                            color: kWhiteColor,
+                            color: Colors.grey.shade800,
                           ),
                           Icon(
                             Icons.chevron_left,
                             size: 15,
-                            color: kWhiteColor,
+                            color: Colors.grey.shade700,
                           ),
                           Icon(
                             Icons.chevron_left,
                             size: 15,
-                            color: kWhiteColor,
+                            color: Colors.grey.shade600,
                           ),
                         ],
                       ),
@@ -209,7 +193,7 @@ class _RollingSwitchState extends State<SwipIcon>
                         child: Opacity(
                           opacity: (1 - value).clamp(0.0, 1.0),
                           child: Icon(
-                            Icons.lock_outline,
+                            Icons.lock,
                             size: 25,
                             color: transitionColor,
                           ),

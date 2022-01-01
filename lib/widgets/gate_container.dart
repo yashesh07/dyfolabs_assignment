@@ -6,21 +6,24 @@ class GateContainer extends StatefulWidget {
 
   final String gateNumber;
   final String gateStatus;
+  bool isOn;
+  final Function(bool) changeSwitch;
 
-  GateContainer({this.gateNumber = '', this.gateStatus = ''});
+  GateContainer({this.gateNumber = '', this.gateStatus = '', required this.isOn, required this.changeSwitch});
 
   @override
   State<GateContainer> createState() => _GateContainerState();
 }
 
 class _GateContainerState extends State<GateContainer> {
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 90,
       width: 150,
       child: Padding(
-        padding: EdgeInsets.all(5),
+        padding: const EdgeInsets.all(5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,17 +45,18 @@ class _GateContainerState extends State<GateContainer> {
               height: 3,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10),
               child: SwipIcon(
                 onTap: (){},
                 onDoubleTap: (){},
                 onSwipe: (){},
-                value: true,
-                iconOn: Icons.lock_open_rounded,
-                iconOff: Icons.lock_outline_rounded,
-                textSize: 16.0,
-                onChanged: (bool state) {
-                  print('Current State of SWITCH IS: $state');
+                value: widget.isOn,
+                iconOn: Icons.lock_open,
+                iconOff: widget.isOn ? Icons.face : Icons.lock,
+                onChanged: (bool state){
+                  WidgetsBinding.instance!.addPostFrameCallback((_){
+                    widget.changeSwitch(state);
+                  });
                 },
               ),
             ),

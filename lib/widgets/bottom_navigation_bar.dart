@@ -11,6 +11,9 @@ class CustomBottomNavigationBar extends StatefulWidget {
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+
+  int pageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -45,19 +48,35 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               padding: EdgeInsets.symmetric(horizontal: 5),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
+                children: [
                   IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.home_outlined, size: 25, color: kWhiteColor,)),
+                      onPressed: (){
+                        setState(() {
+                          pageIndex = 0;
+                        });
+                      },
+                      icon: Icon(Icons.home_outlined, size: 25, color: pageIndex==0?kYellowColor:kWhiteColor,)),
                   IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.grid_view_rounded, size: 25, color: kWhiteColor,)),
+                      onPressed: (){
+                        setState(() {
+                          pageIndex = 1;
+                        });
+                      },
+                      icon: Icon(Icons.grid_view_rounded, size: 25, color: pageIndex==1?kYellowColor:kWhiteColor,)),
                   IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.notifications_none_rounded, size: 25, color: kWhiteColor,)),
+                      onPressed: (){
+                        setState(() {
+                          pageIndex = 2;
+                        });
+                      },
+                      icon: Icon(Icons.notifications_none_rounded, size: 25, color: pageIndex==2?kYellowColor:kWhiteColor,)),
                   IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.settings_outlined, size: 25, color: kWhiteColor,)),
+                      onPressed: (){
+                        setState(() {
+                          pageIndex = 3;
+                        });
+                      },
+                      icon: Icon(Icons.settings_outlined, size: 25, color: pageIndex==3?kYellowColor:kWhiteColor,)),
                 ],
               ),
             ),

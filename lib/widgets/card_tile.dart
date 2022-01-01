@@ -7,7 +7,7 @@ import 'gate_container.dart';
 
 class CardTile extends StatefulWidget {
   final bool isGate;
-  final bool isOn;
+  bool isOn;
   final Widget iconWidget;
   final Widget subWidget;
   final String deviceName;
@@ -36,6 +36,12 @@ class CardTile extends StatefulWidget {
 class _CardTileState extends State<CardTile> {
   @override
   Widget build(BuildContext context) {
+    void changeSwitch(bool state) {
+      setState(() {
+        widget.isOn = state;
+      });
+    }
+
     return UnicornOutlineButton(
       strokeWidth: 1.5,
       radius: 12,
@@ -49,11 +55,19 @@ class _CardTileState extends State<CardTile> {
           colors: widget.isOn
               ? [kYellowColorShade3, Colors.grey.shade800]
               : [Colors.grey.shade800, Colors.grey.shade800]),
-      onPressed: () {},
+      onPressed: widget.isGate
+          ? () {}
+          : () {
+              setState(() {
+                widget.isOn = !widget.isOn;
+              });
+            },
       child: widget.isGate
           ? GateContainer(
+              changeSwitch: changeSwitch,
               gateNumber: widget.gateNumber,
               gateStatus: widget.gateStatus,
+              isOn: widget.isOn,
             )
           : DeviceContainer(
               isOn: widget.isOn,
