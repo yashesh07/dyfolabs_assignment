@@ -37,6 +37,7 @@ dependencies:
   flutter_gradient_colors: ^2.1.1
   flutter_weather_icons: ^1.0.2
   floating_bottom_navigation_bar: ^1.5.2
+  flutter_cube: ^0.1.1
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,8 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
+  assets:
+    - assets/
 
   fonts:
   - family: Courgette

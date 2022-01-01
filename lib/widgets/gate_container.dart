@@ -52,7 +52,7 @@ class _GateContainerState extends State<GateContainer> {
                 onSwipe: (){},
                 value: widget.isOn,
                 iconOn: Icons.lock_open,
-                iconOff: widget.isOn ? Icons.face : Icons.lock,
+                iconOff: Icons.lock,
                 onChanged: (bool state){
                   WidgetsBinding.instance!.addPostFrameCallback((_){
                     widget.changeSwitch(state);

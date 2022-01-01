@@ -7,11 +7,11 @@ class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
-  _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-
   int pageIndex = 0;
 
   @override
@@ -50,33 +50,74 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           pageIndex = 0;
                         });
                       },
-                      icon: Icon(Icons.home_outlined, size: 25, color: pageIndex==0?kYellowColor:kWhiteColor,)),
+                      icon: Icon(
+                        Icons.home_outlined,
+                        size: 25,
+                        color: pageIndex == 0 ? kYellowColor : kWhiteColor,
+                      )),
                   IconButton(
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           pageIndex = 1;
                         });
                       },
-                      icon: Icon(Icons.grid_view_rounded, size: 25, color: pageIndex==1?kYellowColor:kWhiteColor,)),
+                      icon: Icon(
+                        Icons.grid_view_rounded,
+                        size: 25,
+                        color: pageIndex == 1 ? kYellowColor : kWhiteColor,
+                      )),
+                  Stack(
+                    children: <Widget>[
+                      IconButton(
+                          icon: Icon(
+                            Icons.notifications_none_rounded,
+                            size: 25,
+                            color: pageIndex == 2 ? kYellowColor : kWhiteColor,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              pageIndex = 2;
+                            });
+                          }),
+                      Positioned(
+                        left: 13,
+                        top: 17,
+                        child: Container(
+                          padding: const EdgeInsets.all(1),
+                          height: 8,
+                          width: 8,
+                          decoration: BoxDecoration(
+                            color: kYellowColor,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              color: kBlackColor,
+                              fontSize: 5,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                   IconButton(
-                      onPressed: (){
-                        setState(() {
-                          pageIndex = 2;
-                        });
-                      },
-                      icon: Icon(Icons.notifications_none_rounded, size: 25, color: pageIndex==2?kYellowColor:kWhiteColor,)),
-                  IconButton(
-                      onPressed: (){
+                      onPressed: () {
                         setState(() {
                           pageIndex = 3;
                         });
                       },
-                      icon: Icon(Icons.settings_outlined, size: 25, color: pageIndex==3?kYellowColor:kWhiteColor,)),
+                      icon: Icon(
+                        Icons.settings_outlined,
+                        size: 25,
+                        color: pageIndex == 3 ? kYellowColor : kWhiteColor,
+                      )),
                 ],
               ),
             ),
