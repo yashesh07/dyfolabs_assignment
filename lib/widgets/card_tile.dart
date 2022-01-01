@@ -2,8 +2,32 @@ import 'package:dyfolabs_assignment/resources/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:dyfolabs_assignment/widgets/gradient_border.dart';
 
+import 'device_container.dart';
+import 'gate_container.dart';
+
 class CardTile extends StatefulWidget {
-  const CardTile({Key? key}) : super(key: key);
+  final bool isGate;
+  final bool isOn;
+  final Widget iconWidget;
+  final Widget subWidget;
+  final String deviceName;
+  final String description;
+  final String timeLocation;
+  final String temperature;
+  final String gateStatus;
+  final String gateNumber;
+
+  CardTile(
+      {this.isGate = false,
+      required this.isOn,
+      this.iconWidget = const Text(''),
+      this.description = "",
+      this.deviceName = "",
+      this.timeLocation = "",
+      this.subWidget = const Text(''),
+      this.temperature = "",
+      this.gateStatus = '',
+      this.gateNumber = ''});
 
   @override
   _CardTileState createState() => _CardTileState();
@@ -16,23 +40,30 @@ class _CardTileState extends State<CardTile> {
       strokeWidth: 1.5,
       radius: 12,
       gradient: LinearGradient(
-          begin: const Alignment(
-              -0.5, -1.5),
-          end: const Alignment(
-              0.0, 1.2),
+          begin: const Alignment(-0.5, -1.5),
+          end: const Alignment(0.0, 1.2),
           stops: const [
             0.2,
             0.4,
           ],
-          colors: [
-            kYellowColorShade3,
-            Colors.grey.shade900
-          ]),
+          colors: widget.isOn
+              ? [kYellowColorShade3, Colors.grey.shade800]
+              : [Colors.grey.shade800, Colors.grey.shade800]),
       onPressed: () {},
-      child: Container(
-        height: 85,
-        width: 145,
-      ),
+      child: widget.isGate
+          ? GateContainer(
+              gateNumber: widget.gateNumber,
+              gateStatus: widget.gateStatus,
+            )
+          : DeviceContainer(
+              isOn: widget.isOn,
+              iconWidget: widget.iconWidget,
+              deviceName: widget.deviceName,
+              subWidget: widget.subWidget,
+              description: widget.description,
+              temperature: widget.temperature,
+              timeLocation: widget.timeLocation,
+            ),
     );
   }
 }

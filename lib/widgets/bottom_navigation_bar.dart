@@ -14,7 +14,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25.0, right: 25.0, bottom: 25.0),
+      padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 25.0),
       child: Positioned(
         top: 32,
         left: 0,
@@ -70,8 +70,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   Widget buildBlur({
     @required Widget? child,
     BorderRadius? borderRadius,
-    double sigmaX = 3,
-    double sigmaY = 3,
+    double sigmaX = 5,
+    double sigmaY = 5,
   }) =>
       ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.zero,

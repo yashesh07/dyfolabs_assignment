@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 25.0, vertical: 40.0),
+                    horizontal: 15.0, vertical: 40.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     isScrollable: true,
                     indicatorColor: Colors.transparent,
                     labelPadding: const EdgeInsets.symmetric(horizontal: 5.0),
-                    padding: const EdgeInsets.only(left: 20.0),
+                    padding: const EdgeInsets.only(left: 10.0),
                     tabs: [
                       Tab(
                         child: TabContainer(
