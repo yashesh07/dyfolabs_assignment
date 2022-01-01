@@ -1,6 +1,4 @@
 import 'package:dyfolabs_assignment/screens/home_screen.dart';
-import 'package:dyfolabs_assignment/screens/model_screen.dart';
-import 'package:dyfolabs_assignment/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ModelScreen(),
+      home: HomeScreen(),
     );
   }
 }
